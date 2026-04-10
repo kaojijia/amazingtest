@@ -3,80 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>心理测试评测</title>
+    <title>情感人格类型心理测试</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1>心理测试评测</h1>
-            <p class="subtitle">探索你的性格特质</p>
+            <h1>情感人格类型心理测试</h1>
+            <p class="subtitle">探索你的情感特质，了解真实的自己</p>
         </div>
     </header>
     <main>
         <section id="test-container">
             <div id="questions-container">
-                <div class="question">
-                    <h3 class="question-number">问题 1</h3>
-                    <p class="question-text">当你遇到困难时，你通常会怎么做？</p>
-                    <div class="options-container">
-                        <div class="option" data-question="0" data-score="1">立即寻求帮助</div>
-                        <div class="option" data-question="0" data-score="2">尝试自己解决</div>
-                        <div class="option" data-question="0" data-score="3">冷静分析后再行动</div>
-                        <div class="option" data-question="0" data-score="4">先放一放，稍后再处理</div>
+                <div class="test-intro">
+                    <h2>测试说明</h2>
+                    <div class="intro-content">
+                        <p>1. 本测试共60道题目，均为单选题，请根据自身真实行为和想法选择，无需刻意迎合他人，作答时请勿反复斟酌，凭第一直觉选择。</p>
+                        <p>2. 选项分值：A=1分，B=2分，C=3分，D=4分，完成所有题目后计算总分，对照结果判定自己的情感人格类型。</p>
+                        <p>3. 测试结果仅反映日常情感社交中的人格倾向，无绝对好坏，仅供自我认知参考，请勿过度较真。</p>
                     </div>
-                </div>
-                <div class="question">
-                    <h3 class="question-number">问题 2</h3>
-                    <p class="question-text">在社交场合中，你更倾向于：</p>
-                    <div class="options-container">
-                        <div class="option" data-question="1" data-score="1">主动与人交流</div>
-                        <div class="option" data-question="1" data-score="2">等待别人主动</div>
-                        <div class="option" data-question="1" data-score="3">选择性地与熟悉的人交流</div>
-                        <div class="option" data-question="1" data-score="4">尽量保持低调</div>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3 class="question-number">问题 3</h3>
-                    <p class="question-text">当你收到批评时，你会：</p>
-                    <div class="options-container">
-                        <div class="option" data-question="2" data-score="1">感到沮丧和难过</div>
-                        <div class="option" data-question="2" data-score="2">接受并反思</div>
-                        <div class="option" data-question="2" data-score="3">分析批评的合理性</div>
-                        <div class="option" data-question="2" data-score="4">认为批评不公正</div>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3 class="question-number">问题 4</h3>
-                    <p class="question-text">你如何看待未来的不确定性？</p>
-                    <div class="options-container">
-                        <div class="option" data-question="3" data-score="1">感到焦虑和不安</div>
-                        <div class="option" data-question="3" data-score="2">保持谨慎但乐观</div>
-                        <div class="option" data-question="3" data-score="3">视为挑战和机遇</div>
-                        <div class="option" data-question="3" data-score="4">不太在意，顺其自然</div>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3 class="question-number">问题 5</h3>
-                    <p class="question-text">在团队合作中，你通常扮演什么角色？</p>
-                    <div class="options-container">
-                        <div class="option" data-question="4" data-score="1">跟随者，执行任务</div>
-                        <div class="option" data-question="4" data-score="2">协调者，确保团队和谐</div>
-                        <div class="option" data-question="4" data-score="3">领导者，制定计划</div>
-                        <div class="option" data-question="4" data-score="4">思考者，提供创意</div>
-                    </div>
-                </div>
-                <div class="submit-container">
-                    <button id="submit-btn">提交测试</button>
                 </div>
             </div>
             <div id="result-container" style="display: none;">
                 <div class="result-card">
                     <h2>测试结果</h2>
                     <div class="score-section">
-                        <p class="result-score">你的得分：<span id="final-score">0</span></p>
+                        <p class="result-score">你的得分：<span id="final-score">0</span>分</p>
+                    </div>
+                    <div class="type-section">
+                        <p class="result-type">你的人格类型：<span id="personality-type">-</span></p>
                     </div>
                     <div class="description-section">
+                        <h3>类型分析</h3>
                         <p id="result-description"></p>
                     </div>
                     <button id="restart-btn">重新测试</button>
@@ -86,7 +45,7 @@
     </main>
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 心理测试评测</p>
+            <p>&copy; 2026 情感人格类型心理测试</p>
             <p class="footer-note">本测试仅供娱乐参考，非专业心理评估</p>
         </div>
     </footer>

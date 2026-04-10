@@ -1,186 +1,224 @@
-// 心理测试题目数据
-const questions = [
+// 心理测试题目数据 - 每个选项有固定的渣度值(1-4)
+const rawQuestions = [
     {
         text: "凌晨三点，好哥哥发来在吗，你：",
         options: [
-            { text: "已读不回，第二天说睡着了", score: 1, label: "A" },
-            { text: "礼貌回个表情包，然后继续睡", score: 2, label: "B" },
-            { text: "秒回在呢宝~，开始深夜畅聊", score: 3, label: "C" },
-            { text: "直接弹语音过去：怎么啦想我啦", score: 4, label: "D" }
+            { text: "已读不回，第二天说睡着了", level: 1 },
+            { text: "礼貌回个表情包，然后继续睡", level: 2 },
+            { text: "秒回在呢宝~，开始深夜畅聊", level: 3 },
+            { text: "直接弹语音过去：怎么啦想我啦", level: 4 }
         ]
     },
     {
         text: "你的置顶里有多少人？",
         options: [
-            { text: "就一个对象，其他都是工作群", score: 1, label: "A" },
-            { text: "对象加两三个死党", score: 2, label: "B" },
-            { text: "七八个吧，都是重要的人", score: 3, label: "C" },
-            { text: "开什么玩笑，小号了解一下", score: 4, label: "D" }
+            { text: "就一个对象，其他都是工作群", level: 1 },
+            { text: "对象加两三个死党", level: 2 },
+            { text: "七八个吧，都是重要的人", level: 3 },
+            { text: "开什么玩笑，小号了解一下", level: 4 }
         ]
     },
     {
         text: "对象问在干嘛，你实际在：",
         options: [
-            { text: "真的在加班，如实汇报", score: 1, label: "A" },
-            { text: "在打游戏，但说在工作", score: 2, label: "B" },
-            { text: "在和异性吃饭，顺便把旁边P掉", score: 3, label: "C" },
-            { text: "在约会，但不是和对象——开会中勿扰", score: 4, label: "D" }
+            { text: "真的在加班，如实汇报", level: 1 },
+            { text: "在打游戏，但说在工作", level: 2 },
+            { text: "在和异性吃饭，顺便把旁边P掉", level: 3 },
+            { text: "在约会，但不是和对象——开会中勿扰", level: 4 }
         ]
     },
     {
         text: "你的微信分组标签是：",
         options: [
-            { text: "家人朋友同事，没了", score: 1, label: "A" },
-            { text: "有个待定分组，放着没想好的人", score: 2, label: "B" },
-            { text: "鱼塘1号鱼塘2号已上钩待开发...", score: 3, label: "C" },
-            { text: "分什么类，直接给每个人设专属备注", score: 4, label: "D" }
+            { text: "家人朋友同事，没了", level: 1 },
+            { text: "有个待定分组，放着没想好的人", level: 2 },
+            { text: "鱼塘1号鱼塘2号已上钩待开发...", level: 3 },
+            { text: "分什么类，直接给每个人设专属备注", level: 4 }
         ]
     },
     {
         text: "朋友圈发自拍说今天也很充实，实际上：",
         options: [
-            { text: "真的充实，记录美好生活", score: 1, label: "A" },
-            { text: "在家躺了一天，但想装得很充实", score: 2, label: "B" },
-            { text: "仅某人可见，懂得都懂", score: 3, label: "C" },
-            { text: "群发钓鱼，谁点赞私聊谁", score: 4, label: "D" }
+            { text: "真的充实，记录美好生活", level: 1 },
+            { text: "在家躺了一天，但想装得很充实", level: 2 },
+            { text: "仅某人可见，懂得都懂", level: 3 },
+            { text: "群发钓鱼，谁点赞私聊谁", level: 4 }
         ]
     },
     {
         text: "对象说想看你手机，你：",
         options: [
-            { text: "给啊随便看，反正没啥", score: 1, label: "A" },
-            { text: "给，但先上个厕所删东西", score: 2, label: "B" },
-            { text: "这是不信任！然后大吵一架", score: 3, label: "C" },
-            { text: "手机坏了没电了忘带了，反正不给", score: 4, label: "D" }
+            { text: "给啊随便看，反正没啥", level: 1 },
+            { text: "给，但先上个厕所删东西", level: 2 },
+            { text: "这是不信任！然后大吵一架", level: 3 },
+            { text: "手机坏了没电了忘带了，反正不给", level: 4 }
         ]
     },
     {
         text: "你的异性闺蜜约你单独吃饭，你：",
         options: [
-            { text: "拒绝，或者带上对象一起", score: 1, label: "A" },
-            { text: "去，但提前报备，吃完汇报", score: 2, label: "B" },
-            { text: "去，公司聚餐了解一下", score: 3, label: "C" },
-            { text: "约什么约，直接来家里做饭", score: 4, label: "D" }
+            { text: "拒绝，或者带上对象一起", level: 1 },
+            { text: "去，但提前报备，吃完汇报", level: 2 },
+            { text: "去，公司聚餐了解一下", level: 3 },
+            { text: "约什么约，直接来家里做饭", level: 4 }
         ]
     },
     {
         text: "分手后前任求复合，你：",
         options: [
-            { text: "看情况，还爱就复合不爱就拉黑", score: 1, label: "A" },
-            { text: "不复合，但留着当朋友偶尔聊", score: 2, label: "B" },
-            { text: "不复合，但寂寞时约出来叙叙旧", score: 3, label: "C" },
-            { text: "复合个屁，同时吊三个，谁对我好我跟谁", score: 4, label: "D" }
+            { text: "看情况，还爱就复合不爱就拉黑", level: 1 },
+            { text: "不复合，但留着当朋友偶尔聊", level: 2 },
+            { text: "不复合，但寂寞时约出来叙叙旧", level: 3 },
+            { text: "复合个屁，同时吊三个，谁对我好我跟谁", level: 4 }
         ]
     },
     {
         text: "你的聊天记录出现最多的是：",
         options: [
-            { text: "好的收到哈哈哈", score: 1, label: "A" },
-            { text: "在干嘛吃了吗早点睡", score: 2, label: "B" },
-            { text: "宝想你亲亲（不同的人）", score: 3, label: "C" },
-            { text: "别告诉你对象我们这样不好吧刺激", score: 4, label: "D" }
+            { text: "好的收到哈哈哈", level: 1 },
+            { text: "在干嘛吃了吗早点睡", level: 2 },
+            { text: "宝想你亲亲（不同的人）", level: 3 },
+            { text: "别告诉你对象我们这样不好吧刺激", level: 4 }
         ]
     },
     {
         text: "情人节你收到几份礼物？",
         options: [
-            { text: "一份，来自对象", score: 1, label: "A" },
-            { text: "一份，但偷偷羡慕别人的", score: 2, label: "B" },
-            { text: "两三份，不同人送的都收", score: 3, label: "C" },
-            { text: "数不清，礼物袋比垃圾桶大", score: 4, label: "D" }
+            { text: "一份，来自对象", level: 1 },
+            { text: "一份，但偷偷羡慕别人的", level: 2 },
+            { text: "两三份，不同人送的都收", level: 3 },
+            { text: "数不清，礼物袋比垃圾桶大", level: 4 }
         ]
     },
     {
         text: "你的恋爱观是：",
         options: [
-            { text: "一生一世一双人，认准就一辈子", score: 1, label: "A" },
-            { text: "不合适就分，但每段都认真", score: 2, label: "B" },
-            { text: "多谈几个才知道谁最适合", score: 3, label: "C" },
-            { text: "谈什么恋爱，养鱼它不香吗", score: 4, label: "D" }
+            { text: "一生一世一双人，认准就一辈子", level: 1 },
+            { text: "不合适就分，但每段都认真", level: 2 },
+            { text: "多谈几个才知道谁最适合", level: 3 },
+            { text: "谈什么恋爱，养鱼它不香吗", level: 4 }
         ]
     },
     {
         text: "对象问你爱我吗，你：",
         options: [
-            { text: "认真看着眼睛说爱", score: 1, label: "A" },
-            { text: "当然爱啊，亲一口糊弄过去", score: 2, label: "B" },
-            { text: "你怎么突然问这个，转移话题", score: 3, label: "C" },
-            { text: "爱啊——同时给5个人发在想你", score: 4, label: "D" }
+            { text: "认真看着眼睛说爱", level: 1 },
+            { text: "当然爱啊，亲一口糊弄过去", level: 2 },
+            { text: "你怎么突然问这个，转移话题", level: 3 },
+            { text: "爱啊——同时给5个人发在想你", level: 4 }
         ]
     },
     {
         text: "你的晚安都发给谁？",
         options: [
-            { text: "只发给对象，发完就睡", score: 1, label: "A" },
-            { text: "对象加好朋友，群发", score: 2, label: "B" },
-            { text: "不同人不同晚安，有的还带爱心", score: 3, label: "C" },
-            { text: "发什么晚安，发睡了吗，谁回聊谁", score: 4, label: "D" }
+            { text: "只发给对象，发完就睡", level: 1 },
+            { text: "对象加好朋友，群发", level: 2 },
+            { text: "不同人不同晚安，有的还带爱心", level: 3 },
+            { text: "发什么晚安，发睡了吗，谁回聊谁", level: 4 }
         ]
     },
     {
         text: "你有多少个只是朋友的异性？",
         options: [
-            { text: "没几个，都认识我对象", score: 1, label: "A" },
-            { text: "有几个，但正常交往", score: 2, label: "B" },
-            { text: "挺多，都只是朋友，但都单独约", score: 3, label: "C" },
-            { text: "朋友？那是储备粮，懂？", score: 4, label: "D" }
+            { text: "没几个，都认识我对象", level: 1 },
+            { text: "有几个，但正常交往", level: 2 },
+            { text: "挺多，都只是朋友，但都单独约", level: 3 },
+            { text: "朋友？那是储备粮，懂？", level: 4 }
         ]
     },
     {
         text: "你最容易对哪种人心动？",
         options: [
-            { text: "对我好专一有责任感的", score: 1, label: "A" },
-            { text: "长得好看有趣聊得来的", score: 2, label: "B" },
-            { text: "对我好但又有对象的——刺激", score: 3, label: "C" },
-            { text: "对我好就行，同时对我好更好", score: 4, label: "D" }
+            { text: "对我好专一有责任感的", level: 1 },
+            { text: "长得好看有趣聊得来的", level: 2 },
+            { text: "对我好但又有对象的——刺激", level: 3 },
+            { text: "对我好就行，同时对我好更好", level: 4 }
         ]
     },
     {
         text: "你的恋爱保质期多久？",
         options: [
-            { text: "一年以上，甚至好几年", score: 1, label: "A" },
-            { text: "几个月到一年，看感觉", score: 2, label: "B" },
-            { text: "几周吧，新鲜感过了就换", score: 3, label: "C" },
-            { text: "保质期？同时开好几瓶，喝完开下一瓶", score: 4, label: "D" }
+            { text: "一年以上，甚至好几年", level: 1 },
+            { text: "几个月到一年，看感觉", level: 2 },
+            { text: "几周吧，新鲜感过了就换", level: 3 },
+            { text: "保质期？同时开好几瓶，喝完开下一瓶", level: 4 }
         ]
     },
     {
         text: "如果对象和异性聊天，你：",
         options: [
-            { text: "信任，不会乱吃醋", score: 1, label: "A" },
-            { text: "不舒服，但会沟通", score: 2, label: "B" },
-            { text: "你可以我也可以，找人报复性聊天", score: 3, label: "C" },
-            { text: "双标——我可以，你不行", score: 4, label: "D" }
+            { text: "信任，不会乱吃醋", level: 1 },
+            { text: "不舒服，但会沟通", level: 2 },
+            { text: "你可以我也可以，找人报复性聊天", level: 3 },
+            { text: "双标——我可以，你不行", level: 4 }
         ]
     },
     {
         text: "你的微信步数暴露了什么？",
         options: [
-            { text: "宅家0步或正常上下班", score: 1, label: "A" },
-            { text: "偶尔异常，但能解释", score: 2, label: "B" },
-            { text: "经常半夜还有步数，夜跑去了", score: 3, label: "C" },
-            { text: "关了什么步数，或者开小号刷", score: 4, label: "D" }
+            { text: "宅家0步或正常上下班", level: 1 },
+            { text: "偶尔异常，但能解释", level: 2 },
+            { text: "经常半夜还有步数，夜跑去了", level: 3 },
+            { text: "关了什么步数，或者开小号刷", level: 4 }
         ]
     },
     {
         text: "你对海王这个词的态度：",
         options: [
-            { text: "鄙视，不可能成为这种人", score: 1, label: "A" },
-            { text: "不理解，觉得累", score: 2, label: "B" },
-            { text: "羡慕，但觉得自己做不到", score: 3, label: "C" },
-            { text: "别骂了别骂了.jpg", score: 4, label: "D" }
+            { text: "鄙视，不可能成为这种人", level: 1 },
+            { text: "不理解，觉得累", level: 2 },
+            { text: "羡慕，但觉得自己做不到", level: 3 },
+            { text: "别骂了别骂了.jpg", level: 4 }
         ]
     },
     {
         text: "最后一题：你觉得自己渣吗？",
         options: [
-            { text: "不渣，每段感情都认真", score: 1, label: "A" },
-            { text: "偶尔有点，但总体还行", score: 2, label: "B" },
-            { text: "有点渣，但我快乐啊", score: 3, label: "C" },
-            { text: "渣什么渣，这叫给每个人一个家", score: 4, label: "D" }
+            { text: "不渣，每段感情都认真", level: 1 },
+            { text: "偶尔有点，但总体还行", level: 2 },
+            { text: "有点渣，但我快乐啊", level: 3 },
+            { text: "渣什么渣，这叫给每个人一个家", level: 4 }
         ]
     }
 ];
+
+// 打乱数组顺序的函数
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
+
+// 处理题目和选项，生成随机顺序
+function processQuestions() {
+    // 打乱题目顺序
+    const shuffledQuestions = shuffleArray(rawQuestions);
+    
+    // 处理每个题目的选项
+    return shuffledQuestions.map(question => {
+        // 打乱选项顺序
+        const shuffledOptions = shuffleArray(question.options);
+        
+        // 为每个选项分配A/B/C/D标签，分数等于其level值
+        const labels = ['A', 'B', 'C', 'D'];
+        const processedOptions = shuffledOptions.map((option, index) => ({
+            text: option.text,
+            score: option.level, // 分数等于原始level值
+            label: labels[index]
+        }));
+        
+        return {
+            text: question.text,
+            options: processedOptions
+        };
+    });
+}
+
+// 生成题目（页面加载时随机生成）
+let questions = processQuestions();
 
 let scores = new Array(questions.length).fill(undefined);
 let currentQuestion = 0;
@@ -243,8 +281,9 @@ document.addEventListener('DOMContentLoaded', function() {
         prevQuestion();
     });
     
-    // 重新测试按钮
+    // 重新测试按钮 - 重新生成随机顺序
     restartBtn.addEventListener('click', function() {
+        questions = processQuestions();
         resetTest();
     });
 });

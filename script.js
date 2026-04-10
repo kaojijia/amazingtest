@@ -673,8 +673,8 @@ function updateProgressBar() {
 
 // 显示结果
 function showResult() {
-    // 计算总分（过滤掉undefined值）
-    const totalScore = scores.filter(score => score !== undefined).reduce((sum, score) => sum + score, 0);
+    // 计算总分（undefined值按1分计算）
+    const totalScore = scores.reduce((sum, score) => sum + (score === undefined ? 1 : score), 0);
     
     // 根据分数显示结果描述
     let type = '';

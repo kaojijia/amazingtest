@@ -1,183 +1,183 @@
 // 心理测试题目数据
 const questions = [
     {
-        text: "深夜两点，暧昧对象突然发来消息说'睡不着，你陪我聊聊'，你会？",
+        text: "凌晨三点，你的'好哥哥/好姐姐'发来'在吗'，你：",
         options: [
-            { text: "假装没看到，第二天若无其事", score: 1, label: "A" },
-            { text: "礼貌回复但不深入，赶紧睡觉", score: 2, label: "B" },
-            { text: "立刻回复'我也睡不着呢'，开启深夜畅聊模式", score: 3, label: "C" },
-            { text: "不仅秒回，还主动发一张刚洗完澡的照片", score: 4, label: "D" }
+            { text: "已读不回，第二天回个'昨晚睡着了'", score: 1, label: "A" },
+            { text: "礼貌回个表情包，然后继续睡", score: 2, label: "B" },
+            { text: "秒回'在呢宝~'，开始深夜emo时间", score: 3, label: "C" },
+            { text: "直接弹语音过去：'怎么啦想我啦？'", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和现任正在约会，突然前任发来消息说'我想你了，能见一面吗'，你会？",
+        text: "你的置顶里有多少人？",
         options: [
-            { text: "直接删除拉黑，眼不见心不烦", score: 1, label: "A" },
-            { text: "告诉现任，商量怎么处理", score: 2, label: "B" },
-            { text: "偷偷看一眼消息，找借口中途离开去见前任", score: 3, label: "C" },
-            { text: "对现任说公司临时加班，然后去找前任开房", score: 4, label: "D" }
+            { text: "就对象一个，其他都是工作群", score: 1, label: "A" },
+            { text: "对象+两三个死党", score: 2, label: "B" },
+            { text: "七八个吧，都是'重要的人'", score: 3, label: "C" },
+            { text: "置顶？我直接开小号，一个号聊一个", score: 4, label: "D" }
         ]
     },
     {
-        text: "你在朋友圈发了一张和异性的合照，配文'今晚很开心'，你的真实目的是？",
+        text: "对象查岗问'在干嘛'，你实际上在：",
         options: [
-            { text: "单纯记录生活，没有任何目的", score: 1, label: "A" },
-            { text: "想炫耀一下今天的约会，让朋友们知道", score: 2, label: "B" },
-            { text: "故意让某个人看到，看他/她的反应", score: 3, label: "C" },
-            { text: "同时发给多个暧昧对象，看谁先吃醋来讨好你", score: 4, label: "D" }
+            { text: "真的在加班/学习，如实汇报", score: 1, label: "A" },
+            { text: "在打游戏，但说在工作", score: 2, label: "B" },
+            { text: "在和异性吃饭，拍个照把旁边的人P掉", score: 3, label: "C" },
+            { text: "在约会，但对象不是TA——'我在开会，晚点说'", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和A刚确认关系不到一周，B又来追你，而且B比A更有钱更好看，你会？",
+        text: "你的微信分组标签是：",
         options: [
-            { text: "坚定拒绝B，珍惜和A的感情", score: 1, label: "A" },
-            { text: "先不告诉A，偷偷和B聊几天再说", score: 2, label: "B" },
-            { text: "和A分手，理由是'我们不太合适'，然后立刻和B在一起", score: 3, label: "C" },
-            { text: "脚踩两条船，同时和A、B保持恋爱关系", score: 4, label: "D" }
+            { text: "家人、朋友、同事，没了", score: 1, label: "A" },
+            { text: "有个'待定'分组，里面是没想好怎么归类的人", score: 2, label: "B" },
+            { text: "'鱼塘1号''鱼塘2号''已上钩''待开发'...", score: 3, label: "C" },
+            { text: "我不分组，我直接给每个人设置专属标签和备注", score: 4, label: "D" }
         ]
     },
     {
-        text: "你手机里有几个异性的特别备注和专属铃声？",
+        text: "朋友圈发了一张自拍，配文'今天也很充实呢'，实际上：",
         options: [
-            { text: "除了现任，没有任何特别备注", score: 1, label: "A" },
-            { text: "1-2个关系好的普通朋友", score: 2, label: "B" },
-            { text: "5-6个有好感的暧昧对象", score: 3, label: "C" },
-            { text: "10个以上，每个都有专属昵称和特别铃声，方便分辨谁上钩了", score: 4, label: "D" }
+            { text: "真的充实，记录美好生活", score: 1, label: "A" },
+            { text: "在家躺了一天，但想显得自己很充实", score: 2, label: "B" },
+            { text: "专门发给某个暧昧对象看的，仅TA可见", score: 3, label: "C" },
+            { text: "群发钓鱼，看谁先点赞评论就来私聊谁", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和对象吵架后冷战，你会？",
+        text: "对象说'我想看你手机'，你：",
         options: [
-            { text: "冷静一下，主动沟通解决问题", score: 1, label: "A" },
-            { text: "等对方来哄自己，但也不会太久", score: 2, label: "B" },
-            { text: "立刻找别的异性倾诉，说对方的坏话", score: 3, label: "C" },
-            { text: "趁冷战期间约其他异性出来玩，反正他/她又不知道", score: 4, label: "D" }
+            { text: "给啊，随便看，反正没啥见不得人的", score: 1, label: "A" },
+            { text: "给，但会先'上个厕所'，顺便删点东西", score: 2, label: "B" },
+            { text: "'这是不信任我！'然后大吵一架转移话题", score: 3, label: "C" },
+            { text: "'我手机坏了/没电了/忘带了'，反正就是不给", score: 4, label: "D" }
         ]
     },
     {
-        text: "你收到一份价值不菲的礼物，但不是现任送的，你会？",
+        text: "你的'异性闺蜜'约你单独吃饭，你：",
         options: [
-            { text: "拒绝并退回，不想欠人情", score: 1, label: "A" },
-            { text: "收下但告诉现任，看他/她的态度", score: 2, label: "B" },
-            { text: "收下但不告诉现任，自己偷偷藏着", score: 3, label: "C" },
-            { text: "不仅收下，还主动暗示对方'下次送我更好的呗'，试探他/她的底线", score: 4, label: "D" }
+            { text: "拒绝，或者带上对象一起去", score: 1, label: "A" },
+            { text: "去，但提前告诉对象，吃完汇报行程", score: 2, label: "B" },
+            { text: "去，跟对象说'公司聚餐'", score: 3, label: "C" },
+            { text: "去什么去，我直接约到家里'做饭'", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和对象在一起时，会经常看手机吗？一般在看什么？",
+        text: "分手后前任找你复合，你：",
         options: [
-            { text: "偶尔看看，基本都是正常社交", score: 1, label: "A" },
-            { text: "看看朋友圈和新闻，不会刻意隐藏", score: 2, label: "B" },
-            { text: "偷偷看微信消息，怕被对象发现和谁的聊天记录", score: 3, label: "C" },
-            { text: "一边和对象约会，一边同时回复3-5个暧昧对象的微信", score: 4, label: "D" }
+            { text: "看情况，如果还爱就复合，不爱就拉黑", score: 1, label: "A" },
+            { text: "不复合，但留着当朋友，偶尔聊聊", score: 2, label: "B" },
+            { text: "不复合，但寂寞时会约出来'叙叙旧'", score: 3, label: "C" },
+            { text: "复合？我同时吊着三个前任，谁对我好我跟谁", score: 4, label: "D" }
         ]
     },
     {
-        text: "你对'专一'这个词的理解是？",
+        text: "你的聊天记录里出现最多的是：",
         options: [
-            { text: "一生只爱一个人，从一而终", score: 1, label: "A" },
-            { text: "一段感情中只爱一个，但可以有多段感情", score: 2, label: "B" },
-            { text: "没有明确恋爱关系时，可以和多人暧昧", score: 3, label: "C" },
-            { text: "只要没被抓到，就是专一", score: 4, label: "D" }
+            { text: "'好的''收到''哈哈哈'", score: 1, label: "A" },
+            { text: "'在干嘛''吃了吗''早点睡'", score: 2, label: "B" },
+            { text: "'宝''想你''亲亲'（对不同的人）", score: 3, label: "C" },
+            { text: "'别告诉你对象''我们这样不好吧''刺激'", score: 4, label: "D" }
         ]
     },
     {
-        text: "你的异性朋友知道你/你有对象吗？他们怎么知道的？",
+        text: "情人节你收到几份礼物？",
         options: [
-            { text: "当然知道，我主动说的，而且我的朋友圈都是关于对象的", score: 1, label: "A" },
-            { text: "知道，但如果有人问还是会说'我有对象'", score: 2, label: "B" },
-            { text: "我的朋友圈会屏蔽他们，这样他们不知道我有对象", score: 3, label: "C" },
-            { text: "我会假装单身，享受被多人追求的感觉", score: 4, label: "D" }
+            { text: "一份，来自对象", score: 1, label: "A" },
+            { text: "一份，但偷偷羡慕别人收好几份", score: 2, label: "B" },
+            { text: "两三份，不同人送的，我都收了", score: 3, label: "C" },
+            { text: "数不清，反正我收礼物的袋子比垃圾桶还大", score: 4, label: "D" }
         ]
     },
     {
-        text: "你在社交软件上的签名或个人简介是？",
+        text: "你的恋爱观是：",
         options: [
-            { text: "已有对象/恋爱中，勿扰", score: 1, label: "A" },
-            { text: "正常签名，没有任何暗示性内容", score: 2, label: "B" },
-            { text: "'单身可撩'或'期待遇见对的人'，积极暗示自己单身", score: 3, label: "C" },
-            { text: "发一些似是而非的文案，配上诱惑的自拍，让人不确定你到底有没有对象", score: 4, label: "D" }
+            { text: "一生一世一双人，认准了就一辈子", score: 1, label: "A" },
+            { text: "不合适就分，但每段都认真对待", score: 2, label: "B" },
+            { text: "多谈几个才知道谁最适合自己", score: 3, label: "C" },
+            { text: "谈什么恋爱，养鱼不快乐吗？", score: 4, label: "D" }
         ]
     },
     {
-        text: "你对'养鱼'这个词怎么看？",
+        text: "对象问你'你爱我吗'，你：",
         options: [
-            { text: "很不屑，我绝对不会做这种事", score: 1, label: "A" },
-            { text: "不太理解，觉得这样很累", score: 2, label: "B" },
-            { text: "觉得可以理解，但不认为自己是", score: 3, label: "C" },
-            { text: "鱼多塘大，选择更多，这叫'给自己留后路'", score: 4, label: "D" }
+            { text: "认真看着TA的眼睛说'爱'", score: 1, label: "A" },
+            { text: "'当然爱啊'，然后亲一下糊弄过去", score: 2, label: "B" },
+            { text: "'你怎么突然问这个'，转移话题", score: 3, label: "C" },
+            { text: "'爱啊'——同时给手机里的5个人发'在想你'", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和对象吵架时，对象说'你根本不爱我'，你的反应是？",
+        text: "你的'晚安'都发给谁？",
         options: [
-            { text: "反思自己，用行动证明自己的爱", score: 1, label: "A" },
-            { text: "虽然生气，但还是会耐心解释", score: 2, label: "B" },
-            { text: "反怼回去'你不也这样吗'，揭对方的短", score: 3, label: "C" },
-            { text: "冷笑着说'你爱这么想就这么说呗'，然后摔门出去约别人", score: 4, label: "D" }
+            { text: "只发给对象，发完就睡觉", score: 1, label: "A" },
+            { text: "对象+几个好朋友，群发", score: 2, label: "B" },
+            { text: "不同的人不同的晚安，有的还加爱心", score: 3, label: "C" },
+            { text: "我不发晚安，我发'睡了吗'，谁回我我就跟谁聊", score: 4, label: "D" }
         ]
     },
     {
-        text: "你最长的一段感情持续了多久？结束的原因是？",
+        text: "你有多少个'只是朋友'的异性？",
         options: [
-            { text: "3年以上，因为客观原因或深思熟虑后和平分手", score: 1, label: "A" },
-            { text: "1-3年，觉得不合适或遇到更喜欢的人而分手", score: 2, label: "B" },
-            { text: "几个月到半年，每次都是被分手或分手别人", score: 3, label: "C" },
-            { text: "从来没有超过一个月，因为我'不甘心'被一个人绑定", score: 4, label: "D" }
+            { text: "没几个，而且都认识我对象", score: 1, label: "A" },
+            { text: "有几个，但都是正常交往", score: 2, label: "B" },
+            { text: "挺多的，每个都'只是朋友'，但都会单独约", score: 3, label: "C" },
+            { text: "'朋友'？那是我的储备粮，懂？", score: 4, label: "D" }
         ]
     },
     {
-        text: "你对'劈腿'的定义是？",
+        text: "你最容易对哪种人心动？",
         options: [
-            { text: "精神和身体都不可以，这是底线", score: 1, label: "A" },
-            { text: "只要没发生关系，精神出轨可以原谅", score: 2, label: "B" },
-            { text: "只要没被发现，就不算劈腿", score: 3, label: "C" },
-            { text: "只要我更喜欢对方，我就有权利去追求新的感情", score: 4, label: "D" }
+            { text: "对我好、专一、有责任感的人", score: 1, label: "A" },
+            { text: "长得好看、有趣、聊得来的人", score: 2, label: "B" },
+            { text: "对我好但又有对象的人（刺激）", score: 3, label: "C" },
+            { text: "只要对我好就行，同时对我好就更好了", score: 4, label: "D" }
         ]
     },
     {
-        text: "你的现任问'你手机密码是什么'，你会？",
+        text: "你的恋爱保质期一般是多久？",
         options: [
-            { text: "毫不犹豫地告诉他/她，反正没有什么不能看的", score: 1, label: "A" },
-            { text: "告诉他/她，但会提前删除一些聊天记录", score: 2, label: "B" },
-            { text: "找借口拒绝，说'这是我的隐私'", score: 3, label: "C" },
-            { text: "设很多层密码和指纹，还把暧昧对象放在隐藏相册里", score: 4, label: "D" }
+            { text: "一年以上，甚至好几年", score: 1, label: "A" },
+            { text: "几个月到一年，看感觉", score: 2, label: "B" },
+            { text: "几周吧，新鲜感过了就换", score: 3, label: "C" },
+            { text: "保质期？我同时开好几瓶，喝完一瓶开一瓶", score: 4, label: "D" }
         ]
     },
     {
-        text: "你和前任分手后，你会？",
+        text: "如果对象和异性聊天，你：",
         options: [
-            { text: "彻底删除联系方式，开始新生活", score: 1, label: "A" },
-            { text: "留着微信但不联系，当普通朋友", score: 2, label: "B" },
-            { text: "偶尔聊天，回忆过去的美好，但不会复合", score: 3, label: "C" },
-            { text: "保持联系和暧昧，当'最好的朋友'，方便寂寞时召之即来", score: 4, label: "D" }
+            { text: "信任TA，不会乱吃醋", score: 1, label: "A" },
+            { text: "会不舒服，但会沟通", score: 2, label: "B" },
+            { text: "'你可以聊，我也可以'，然后找异性报复性聊天", score: 3, label: "C" },
+            { text: "双标——我可以聊，你不行", score: 4, label: "D" }
         ]
     },
     {
-        text: "你觉得自己是渣男/渣女吗？",
+        text: "你的微信步数暴露了什么？",
         options: [
-            { text: "绝对不是，我对待感情很认真", score: 1, label: "A" },
-            { text: "偶尔有些小渣，但总体还行", score: 2, label: "B" },
-            { text: "我可能有点海，但我觉得自己很有魅力", score: 3, label: "C" },
-            { text: "渣不渣不重要，重要的是我开心就好", score: 4, label: "D" }
+            { text: "宅家0步或者正常上下班", score: 1, label: "A" },
+            { text: "偶尔有异常，但都能解释", score: 2, label: "B" },
+            { text: "经常半夜还有步数，'我去夜跑了'", score: 3, label: "C" },
+            { text: "我关了步数，或者专门开小号刷步数", score: 4, label: "D" }
         ]
     },
     {
-        text: "你对感情的态度更接近哪种？",
+        text: "你对'海王'这个词的态度是：",
         options: [
-            { text: "宁缺毋滥，宁愿单身也不将就", score: 1, label: "A" },
-            { text: "认真对待每一段感情，但也会现实一些", score: 2, label: "B" },
-            { text: "骑驴找马，在确定更好的之前不放手现在的", score: 3, label: "C" },
-            { text: "我只是想被爱，不想被绑定，感情只是调剂品", score: 4, label: "D" }
+            { text: "鄙视，绝对不会成为这种人", score: 1, label: "A" },
+            { text: "不理解，觉得这样很累", score: 2, label: "B" },
+            { text: "有点羡慕，但觉得自己做不到", score: 3, label: "C" },
+            { text: "别骂了别骂了，我就是", score: 4, label: "D" }
         ]
     },
     {
-        text: "最后一道题：你觉得一个'好恋人'最重要的是什么？",
+        text: "最后一题：你觉得自己渣吗？",
         options: [
-            { text: "专一和忠诚，愿意为对方拒绝所有诱惑", score: 1, label: "A" },
-            { text: "互相尊重，有共同话题，能一起成长", score: 2, label: "B" },
-            { text: "浪漫和激情，能给我带来心跳的感觉", score: 3, label: "C" },
-            { text: "能满足我的需求，给我自由，让我开心就好", score: 4, label: "D" }
+            { text: "不渣，我对每段感情都很认真", score: 1, label: "A" },
+            { text: "偶尔有点，但总体还行", score: 2, label: "B" },
+            { text: "有点渣，但我快乐啊", score: 3, label: "C" },
+            { text: "渣？这叫'给每个人一个家'，懂？", score: 4, label: "D" }
         ]
     }
 ];
@@ -339,17 +339,17 @@ function showResult() {
     let description = '';
     
     if (totalScore >= 20 && totalScore <= 35) {
-        type = '专一好恋人（绝世好男人/女人）';
-        description = '恭喜你！你简直是恋爱界的一股清流！专一负责、三观超正，对感情认真到让人感动。你是那种删光了通讯录也不会删现任的人，是大家口中'别人家的对象'。继续保持，你值得最好的爱情！';
+        type = '纯爱战神（恋爱脑晚期）';
+        description = '绝了！你简直是当代稀有物种！专一得像条狗（褒义），恋爱脑晚期没救了。对象说东你绝不往西，对象说星星你绝不摘月亮。建议：保护好自己，别被渣男/渣女骗了，你这纯度太高了！';
     } else if (totalScore >= 36 && totalScore <= 50) {
-        type = '正常普通人（有点小毛病的大多数）';
-        description = '你是大多数普通人的代表，有责任心但偶尔也会开小差。不会主动伤害别人，但遇到诱惑也可能会有小心思。总体来说还行，别太渣就行，毕竟大家都是凡人嘛～';
+        type = '正常人（有点小渣但不多）';
+        description = '恭喜你，你是个正常人！会有小心思，但底线还在。偶尔想养鱼但鱼塘没水，想当海王但晕船。属于那种'想渣但渣不起来'的类型。继续保持，别学坏！';
     } else if (totalScore >= 51 && totalScore <= 65) {
-        type = '暧昧高手（海王/海后预备役）';
-        description = '哎呀，你这是妥妥的暧昧体质啊！喜欢被追的感觉，享受这种若即若离的关系。鱼塘管理大师，备胎若干，但真心没几个。建议收收心，别最后把真心爱你的人也推走了！';
+        type = '海王/海后（鱼塘塘主）';
+        description = '好家伙，鱼塘挺大啊！同时聊好几个是常态，'宝'字随口就来，爱心表情群发。你是那种'不主动、不拒绝、不负责'的资深玩家。建议：收收心，别最后翻车了！';
     } else if (totalScore >= 66 && totalScore <= 80) {
-        type = '渣男/渣女本渣（人间清醒版）';
-        description = '恭喜你喜提渣男/渣女称号！你把感情玩得明明白白，备胎养得风生水起，暧昧技术炉火纯青。你是那种'我可以渣，但别人不能渣我'的类型。建议：对得起自己的良心，别玩过火了，毕竟出来混总是要还的！';
+        type = '顶级渣男/渣女（祖师爷级别）';
+        description = '卧槽，祖师爷来了！你把感情玩得明明白白，时间管理大师，多线操作666。手机里有三个微信，备忘录记着小号密码，'在开会'是你的口头禅。建议：做个人吧，天道好轮回！';
     }
     
     personalityType.textContent = type;

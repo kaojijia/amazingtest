@@ -44,42 +44,6 @@ main {
     overflow: hidden;
 }
 
-#intro-container {
-    display: block;
-}
-
-.test-intro {
-    padding: 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.test-intro h2 {
-    color: #4a6fa5;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.intro-content {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-}
-
-.intro-content p {
-    margin-bottom: 0.8rem;
-    line-height: 1.8;
-}
-
-.intro-content p:last-child {
-    margin-bottom: 0;
-}
-
-.start-container {
-    text-align: center;
-}
-
 #cards-container {
     padding: 0;
 }
@@ -272,26 +236,12 @@ button:hover:not(:disabled) {
     margin: 0 auto;
 }
 
-.score-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .type-section {
     background: linear-gradient(135deg, #4a6fa5 0%, #6b8cce 100%);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(74, 111, 165, 0.3);
-}
-
-.result-score {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0;
 }
 
 .result-type {
@@ -303,13 +253,6 @@ button:hover:not(:disabled) {
 
 #personality-type {
     font-size: 1.6rem;
-}
-
-#final-score {
-    color: #4a6fa5;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0 0.5rem;
 }
 
 .description-section {
@@ -355,18 +298,6 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    #intro-container {
-        padding: 0;
-    }
-    
-    .test-intro {
-        padding: 1.5rem;
-    }
-    
-    .intro-content {
-        padding: 1.2rem;
-    }
-    
     #cards-container {
         padding: 0;
     }
@@ -421,14 +352,6 @@ footer {
     
     .subtitle {
         font-size: 1rem;
-    }
-    
-    .test-intro {
-        padding: 1.2rem;
-    }
-    
-    .intro-content {
-        padding: 1rem;
     }
     
     .progress-wrapper {

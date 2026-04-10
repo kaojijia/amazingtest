@@ -546,7 +546,6 @@ let scores = new Array(questions.length).fill(undefined);
 let currentQuestion = 0;
 
 // DOM元素
-const introContainer = document.getElementById('intro-container');
 const cardsContainer = document.getElementById('cards-container');
 const resultContainer = document.getElementById('result-container');
 const questionCard = document.getElementById('question-card');
@@ -555,18 +554,14 @@ const optionsContainer = document.getElementById('options-container');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const prevBtn = document.getElementById('prev-btn');
-const finalScore = document.getElementById('final-score');
 const personalityType = document.getElementById('personality-type');
 const resultDescription = document.getElementById('result-description');
-const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 
 // 初始化测试
 document.addEventListener('DOMContentLoaded', function() {
-    // 开始测试按钮
-    startBtn.addEventListener('click', function() {
-        startTest();
-    });
+    // 直接加载第一题
+    loadQuestion(currentQuestion);
     
     // 选项点击事件
     optionsContainer.addEventListener('click', function(e) {
@@ -602,13 +597,6 @@ document.addEventListener('DOMContentLoaded', function() {
         resetTest();
     });
 });
-
-// 开始测试
-function startTest() {
-    introContainer.style.display = 'none';
-    cardsContainer.style.display = 'block';
-    loadQuestion(currentQuestion);
-}
 
 // 加载题目
 function loadQuestion(index, direction = 'next') {
@@ -687,7 +675,6 @@ function updateProgressBar() {
 function showResult() {
     // 计算总分
     const totalScore = scores.reduce((sum, score) => sum + score, 0);
-    finalScore.textContent = totalScore;
     
     // 根据分数显示结果描述
     let type = '';
@@ -721,8 +708,10 @@ function resetTest() {
     scores = new Array(questions.length).fill(undefined);
     currentQuestion = 0;
     
-    // 显示介绍容器，隐藏结果和卡片容器
-    introContainer.style.display = 'block';
-    cardsContainer.style.display = 'none';
+    // 显示卡片容器，隐藏结果容器
+    cardsContainer.style.display = 'block';
     resultContainer.style.display = 'none';
+    
+    // 重新加载第一题
+    loadQuestion(currentQuestion);
 }

@@ -554,6 +554,7 @@ const optionsContainer = document.getElementById('options-container');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const prevBtn = document.getElementById('prev-btn');
+const submitBtn = document.getElementById('submit-btn');
 const personalityType = document.getElementById('personality-type');
 const resultDescription = document.getElementById('result-description');
 const restartBtn = document.getElementById('restart-btn');
@@ -567,12 +568,6 @@ document.addEventListener('DOMContentLoaded', function() {
     optionsContainer.addEventListener('click', function(e) {
         if (e.target.closest('.option')) {
             const optionElement = e.target.closest('.option');
-            
-            // 如果选项已经被选中，不做任何操作
-            if (optionElement.classList.contains('selected')) {
-                return;
-            }
-            
             const score = parseInt(optionElement.dataset.score);
             
             // 保存分数
@@ -586,11 +581,21 @@ document.addEventListener('DOMContentLoaded', function() {
             // 添加当前选项的选中状态
             optionElement.classList.add('selected');
             
-            // 延迟后跳到下一题
-            setTimeout(() => {
-                nextQuestion();
-            }, 300);
+            // 如果是最后一题，显示提交按钮
+            if (currentQuestion === questions.length - 1) {
+                submitBtn.style.display = 'inline-block';
+            } else {
+                // 延迟后跳到下一题
+                setTimeout(() => {
+                    nextQuestion();
+                }, 300);
+            }
         }
+    });
+    
+    // 提交按钮
+    submitBtn.addEventListener('click', function() {
+        showResult();
     });
     
     // 上一题按钮
@@ -614,6 +619,13 @@ function loadQuestion(index, direction = 'next') {
     
     // 更新上一题按钮状态
     prevBtn.disabled = index === 0;
+    
+    // 处理提交按钮显示
+    if (index === questions.length - 1 && scores[index] !== undefined) {
+        submitBtn.style.display = 'inline-block';
+    } else {
+        submitBtn.style.display = 'none';
+    }
     
     // 清空选项
     optionsContainer.innerHTML = '';
@@ -717,6 +729,9 @@ function resetTest() {
     // 显示卡片容器，隐藏结果容器
     cardsContainer.style.display = 'block';
     resultContainer.style.display = 'none';
+    
+    // 隐藏提交按钮
+    submitBtn.style.display = 'none';
     
     // 重新加载第一题
     loadQuestion(currentQuestion);

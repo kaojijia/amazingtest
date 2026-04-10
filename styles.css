@@ -184,6 +184,9 @@ main {
 .card-footer {
     padding-top: 1rem;
     border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .prev-btn {
@@ -206,6 +209,24 @@ main {
 .prev-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
 }
 
 button {
@@ -384,6 +405,11 @@ footer {
     }
     
     .prev-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
         padding: 0.7rem 1.5rem;
         font-size: 0.95rem;
     }

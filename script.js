@@ -127,7 +127,7 @@ const rawQuestions = [
         ]
     },
     {
-        text: "最后一题：你觉得自己渣吗？",
+        text: "你觉得自己渣吗？",
         options: [
             { text: "不渣，每段感情都认真", level: 1 },
             { text: "偶尔有点，但总体还行", level: 2 },

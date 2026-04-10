@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的静态网页</title>
+    <title>心理测试评测</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>欢迎来到我的网站</h1>
+        <h1>心理测试评测</h1>
     </header>
     <main>
-        <section>
-            <h2>关于我</h2>
-            <p>这是一个部署在Vercel上的静态网页。</p>
-        </section>
-        <section>
-            <h2>功能</h2>
-            <ul>
-                <li>响应式设计</li>
-                <li>现代化布局</li>
-                <li>快速加载</li>
-            </ul>
+        <section id="test-container">
+            <div id="question-container">
+                <h2 id="question-number">问题 1/5</h2>
+                <p id="question-text">当你遇到困难时，你通常会怎么做？</p>
+                <div id="options-container">
+                    <div class="option" data-score="1">立即寻求帮助</div>
+                    <div class="option" data-score="2">尝试自己解决</div>
+                    <div class="option" data-score="3">冷静分析后再行动</div>
+                    <div class="option" data-score="4">先放一放，稍后再处理</div>
+                </div>
+                <div id="navigation">
+                    <button id="prev-btn" disabled>上一题</button>
+                    <button id="next-btn">下一题</button>
+                </div>
+            </div>
+            <div id="result-container" style="display: none;">
+                <h2>测试结果</h2>
+                <p id="result-score">你的得分：<span id="final-score">0</span></p>
+                <p id="result-description"></p>
+                <button id="restart-btn">重新测试</button>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 我的网站</p>
+        <p>&copy; 2026 心理测试评测</p>
     </footer>
     <script src="script.js"></script>
 </body>

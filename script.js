@@ -543,40 +543,58 @@ const questions = [
 ];
 
 let scores = new Array(questions.length).fill(undefined);
+let currentQuestion = 0;
 
 // DOM元素
-const questionsContainer = document.getElementById('questions-container');
+const introContainer = document.getElementById('intro-container');
+const cardsContainer = document.getElementById('cards-container');
 const resultContainer = document.getElementById('result-container');
+const questionCard = document.getElementById('question-card');
+const questionText = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options-container');
+const progressFill = document.getElementById('progress-fill');
+const progressText = document.getElementById('progress-text');
+const prevBtn = document.getElementById('prev-btn');
 const finalScore = document.getElementById('final-score');
 const personalityType = document.getElementById('personality-type');
 const resultDescription = document.getElementById('result-description');
+const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 
 // 初始化测试
 document.addEventListener('DOMContentLoaded', function() {
-    initQuestions();
-    addProgressBar();
+    // 开始测试按钮
+    startBtn.addEventListener('click', function() {
+        startTest();
+    });
     
     // 选项点击事件
-    questionsContainer.addEventListener('click', function(e) {
+    optionsContainer.addEventListener('click', function(e) {
         if (e.target.closest('.option')) {
             const optionElement = e.target.closest('.option');
-            const questionIndex = parseInt(optionElement.dataset.question);
+            const score = parseInt(optionElement.dataset.score);
+            
+            // 保存分数
+            scores[currentQuestion] = score;
             
             // 移除当前问题的其他选项的选中状态
-            document.querySelectorAll(`.option[data-question="${questionIndex}"]`).forEach(option => {
+            document.querySelectorAll('.option').forEach(option => {
                 option.classList.remove('selected');
             });
             
             // 添加当前选项的选中状态
             optionElement.classList.add('selected');
             
-            // 保存分数
-            scores[questionIndex] = parseInt(optionElement.dataset.score);
-            
-            // 更新进度条
-            updateProgressBar();
+            // 延迟后跳到下一题
+            setTimeout(() => {
+                nextQuestion();
+            }, 300);
         }
+    });
+    
+    // 上一题按钮
+    prevBtn.addEventListener('click', function() {
+        prevQuestion();
     });
     
     // 重新测试按钮
@@ -585,97 +603,84 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 添加进度条
-function addProgressBar() {
-    const progressContainer = document.createElement('div');
-    progressContainer.className = 'progress-container';
-    progressContainer.innerHTML = `
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-        </div>
-        <div class="progress-text" id="progress-text">已完成: 0/60</div>
-    `;
-    questionsContainer.insertBefore(progressContainer, questionsContainer.firstChild);
+// 开始测试
+function startTest() {
+    introContainer.style.display = 'none';
+    cardsContainer.style.display = 'block';
+    loadQuestion(currentQuestion);
+}
+
+// 加载题目
+function loadQuestion(index, direction = 'next') {
+    const question = questions[index];
+    questionText.textContent = question.text;
+    
+    // 更新进度条
+    updateProgressBar();
+    
+    // 更新上一题按钮状态
+    prevBtn.disabled = index === 0;
+    
+    // 清空选项
+    optionsContainer.innerHTML = '';
+    
+    // 添加选项
+    question.options.forEach((option) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option';
+        optionDiv.dataset.score = option.score;
+        
+        const optionLabel = document.createElement('span');
+        optionLabel.className = 'option-label';
+        optionLabel.textContent = option.label;
+        
+        const optionText = document.createElement('span');
+        optionText.className = 'option-text';
+        optionText.textContent = option.text;
+        
+        optionDiv.appendChild(optionLabel);
+        optionDiv.appendChild(optionText);
+        
+        // 如果已经选择过，保持选中状态
+        if (scores[index] === option.score) {
+            optionDiv.classList.add('selected');
+        }
+        
+        optionsContainer.appendChild(optionDiv);
+    });
+    
+    // 添加滑动动画
+    questionCard.style.animation = 'none';
+    questionCard.offsetHeight; // 触发重绘
+    questionCard.style.animation = direction === 'next' ? 'slideIn 0.4s ease-out' : 'slideBack 0.4s ease-out';
+}
+
+// 下一题
+function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        loadQuestion(currentQuestion, 'next');
+    } else {
+        // 测试完成，显示结果
+        showResult();
+    }
+}
+
+// 上一题
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion(currentQuestion, 'prev');
+    }
 }
 
 // 更新进度条
 function updateProgressBar() {
     const answeredCount = scores.filter(score => score !== undefined).length;
-    const progressPercentage = (answeredCount / questions.length) * 100;
-    
-    const progressFill = document.getElementById('progress-fill');
-    const progressText = document.getElementById('progress-text');
+    const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
     
     progressFill.style.width = `${progressPercentage}%`;
-    progressText.textContent = `已完成: ${answeredCount}/${questions.length}`;
-    
-    // 如果所有题目都回答了，添加提交按钮
-    if (answeredCount === questions.length) {
-        addSubmitButton();
-    }
-}
-
-// 添加提交按钮
-function addSubmitButton() {
-    let submitContainer = document.querySelector('.submit-container');
-    if (!submitContainer) {
-        submitContainer = document.createElement('div');
-        submitContainer.className = 'submit-container';
-        submitContainer.innerHTML = '<button id="submit-btn">提交测试</button>';
-        questionsContainer.appendChild(submitContainer);
-        
-        // 绑定提交事件
-        document.getElementById('submit-btn').addEventListener('click', function() {
-            if (scores.includes(undefined)) {
-                alert('请回答所有问题');
-                return;
-            }
-            showResult();
-        });
-    }
-}
-
-// 初始化题目
-function initQuestions() {
-    questions.forEach((question, index) => {
-        const questionDiv = document.createElement('div');
-        questionDiv.className = 'question';
-        
-        const questionNumber = document.createElement('h3');
-        questionNumber.className = 'question-number';
-        questionNumber.textContent = `问题 ${index + 1}`;
-        
-        const questionText = document.createElement('p');
-        questionText.className = 'question-text';
-        questionText.textContent = question.text;
-        
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-container';
-        
-        question.options.forEach(option => {
-            const optionDiv = document.createElement('div');
-            optionDiv.className = 'option';
-            optionDiv.dataset.question = index;
-            optionDiv.dataset.score = option.score;
-            
-            const optionLabel = document.createElement('span');
-            optionLabel.className = 'option-label';
-            optionLabel.textContent = option.label;
-            
-            const optionText = document.createElement('span');
-            optionText.className = 'option-text';
-            optionText.textContent = option.text;
-            
-            optionDiv.appendChild(optionLabel);
-            optionDiv.appendChild(optionText);
-            optionsContainer.appendChild(optionDiv);
-        });
-        
-        questionDiv.appendChild(questionNumber);
-        questionDiv.appendChild(questionText);
-        questionDiv.appendChild(optionsContainer);
-        questionsContainer.appendChild(questionDiv);
-    });
+    progressText.textContent = `${currentQuestion + 1}/${questions.length}`;
 }
 
 // 显示结果
@@ -705,29 +710,19 @@ function showResult() {
     personalityType.textContent = type;
     resultDescription.textContent = description;
     
-    // 显示结果容器，隐藏题目容器
-    questionsContainer.style.display = 'none';
+    // 显示结果容器，隐藏卡片容器
+    cardsContainer.style.display = 'none';
     resultContainer.style.display = 'block';
-    
-    // 滚动到页面顶部
-    window.scrollTo(0, 0);
 }
 
 // 重置测试
 function resetTest() {
-    // 重置分数
+    // 重置分数和当前题目
     scores = new Array(questions.length).fill(undefined);
+    currentQuestion = 0;
     
-    // 移除题目和提交按钮，保留测试说明
-    const testIntro = document.querySelector('.test-intro');
-    questionsContainer.innerHTML = '';
-    questionsContainer.appendChild(testIntro);
-    
-    // 重新初始化
-    initQuestions();
-    addProgressBar();
-    
-    // 显示题目容器，隐藏结果容器
-    questionsContainer.style.display = 'block';
+    // 显示介绍容器，隐藏结果和卡片容器
+    introContainer.style.display = 'block';
+    cardsContainer.style.display = 'none';
     resultContainer.style.display = 'none';
 }

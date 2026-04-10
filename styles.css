@@ -44,10 +44,13 @@ main {
     overflow: hidden;
 }
 
+#intro-container {
+    display: block;
+}
+
 .test-intro {
     padding: 2rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-bottom: 2px solid #4a6fa5;
 }
 
 .test-intro h2 {
@@ -61,6 +64,7 @@ main {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
 }
 
 .intro-content p {
@@ -72,18 +76,18 @@ main {
     margin-bottom: 0;
 }
 
-#questions-container {
-    padding: 2rem;
+.start-container {
+    text-align: center;
 }
 
-.progress-container {
-    position: sticky;
-    top: 0;
+#cards-container {
+    padding: 0;
+}
+
+.progress-wrapper {
     background-color: #fff;
-    padding: 1rem 2rem;
-    margin: -2rem -2rem 2rem -2rem;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .progress-bar {
@@ -106,46 +110,67 @@ main {
     text-align: center;
     color: #4a6fa5;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
-.question {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #e9ecef;
+.cards-wrapper {
+    padding: 2rem;
+    position: relative;
+    min-height: 500px;
 }
 
-.question:last-child {
-    border-bottom: none;
-    margin-bottom: 2rem;
-    padding-bottom: 0;
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 0;
+    animation: slideIn 0.4s ease-out;
 }
 
-.question-number {
-    color: #4a6fa5;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideBack {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card-content {
+    padding: 1.5rem 0 2rem 0;
 }
 
 .question-text {
-    font-size: 1rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
-    color: #555;
+    color: #333;
+    font-weight: 500;
 }
 
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 .option {
     background-color: #f8f9fa;
     border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 10px;
+    padding: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -154,20 +179,23 @@ main {
 
 .option-label {
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     background: linear-gradient(135deg, #4a6fa5 0%, #6b8cce 100%);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 6px;
     text-align: center;
-    line-height: 24px;
+    line-height: 28px;
     font-weight: bold;
     margin-right: 1rem;
     flex-shrink: 0;
+    font-size: 0.95rem;
 }
 
 .option-text {
     flex: 1;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .option:hover {
@@ -189,11 +217,31 @@ main {
     color: #4a6fa5;
 }
 
-.submit-container {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid #e9ecef;
+.card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.prev-btn {
+    background: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prev-btn:hover:not(:disabled) {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.prev-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 button {
@@ -209,7 +257,7 @@ button {
     box-shadow: 0 4px 12px rgba(74, 111, 165, 0.2);
 }
 
-button:hover {
+button:hover:not(:disabled) {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(74, 111, 165, 0.3);
 }
@@ -307,26 +355,53 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    #questions-container {
+    #intro-container {
+        padding: 0;
+    }
+    
+    .test-intro {
         padding: 1.5rem;
     }
     
-    .progress-container {
-        padding: 0.8rem 1.5rem;
-        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    .intro-content {
+        padding: 1.2rem;
+    }
+    
+    #cards-container {
+        padding: 0;
+    }
+    
+    .progress-wrapper {
+        padding: 1rem 1.5rem;
+    }
+    
+    .cards-wrapper {
+        padding: 1.5rem;
+        min-height: 450px;
+    }
+    
+    .question-text {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .option {
+        padding: 1rem;
+    }
+    
+    .option-label {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 0.9rem;
+    }
+    
+    .option-text {
+        font-size: 1rem;
     }
     
     #result-container {
         padding: 2rem;
-    }
-    
-    .question {
-        margin-bottom: 2rem;
-        padding-bottom: 1.5rem;
-    }
-    
-    .option {
-        padding: 0.8rem;
     }
     
     button {
@@ -348,36 +423,56 @@ footer {
         font-size: 1rem;
     }
     
-    #questions-container {
-        padding: 1.2rem;
-    }
-    
-    .progress-container {
-        padding: 0.6rem 1.2rem;
-        margin: -1.2rem -1.2rem 1.2rem -1.2rem;
-    }
-    
     .test-intro {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     
     .intro-content {
         padding: 1rem;
     }
     
+    .progress-wrapper {
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .cards-wrapper {
+        padding: 1.2rem;
+        min-height: 400px;
+    }
+    
     .question-text {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
     
     .option {
-        padding: 0.7rem;
+        padding: 0.9rem;
     }
     
     .option-label {
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
         font-size: 0.85rem;
+        margin-right: 0.8rem;
+    }
+    
+    .option-text {
+        font-size: 0.95rem;
+    }
+    
+    .prev-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    #result-container {
+        padding: 1.5rem;
+    }
+    
+    .score-section,
+    .type-section,
+    .description-section {
+        padding: 1.5rem;
     }
     
     button {

@@ -1,7 +1,7 @@
 // 心理测试题目数据 - 每个选项有固定的渣度值(1-4)
 const rawQuestions = [
     {
-        text: "凌晨三点，好哥哥发来在吗，你：",
+        text: "凌晨三点，那个人发来在吗，你：",
         options: [
             { text: "已读不回，第二天说睡着了", level: 1 },
             { text: "礼貌回个表情包，然后继续睡", level: 2 },
@@ -12,19 +12,19 @@ const rawQuestions = [
     {
         text: "你的置顶里有多少人？",
         options: [
-            { text: "就一个对象，其他都是工作群", level: 1 },
-            { text: "对象加两三个死党", level: 2 },
+            { text: "就一个人，其他都是工作群", level: 1 },
+            { text: "那个人加两三个死党", level: 2 },
             { text: "七八个吧，都是重要的人", level: 3 },
             { text: "开什么玩笑，小号了解一下", level: 4 }
         ]
     },
     {
-        text: "对象问在干嘛，你实际在：",
+        text: "那个人问在干嘛，你实际在：",
         options: [
             { text: "真的在加班，如实汇报", level: 1 },
             { text: "在打游戏，但说在工作", level: 2 },
-            { text: "在和异性吃饭，顺便把旁边P掉", level: 3 },
-            { text: "在约会，但不是和对象——开会中勿扰", level: 4 }
+            { text: "在和Ta的情敌吃饭，顺便把旁边P掉", level: 3 },
+            { text: "在约会，但不是和那个人——开会中勿扰", level: 4 }
         ]
     },
     {
@@ -46,9 +46,9 @@ const rawQuestions = [
         ]
     },
     {
-        text: "你的异性闺蜜约你单独吃饭，你：",
+        text: "你的红/蓝颜约你单独吃饭，你：",
         options: [
-            { text: "拒绝，或者带上对象一起", level: 1 },
+            { text: "拒绝，或者带上那个人一起", level: 1 },
             { text: "去，但提前报备，吃完汇报", level: 2 },
             { text: "去，公司聚餐了解一下", level: 3 },
             { text: "约什么约，直接来家里做饭", level: 4 }
@@ -69,7 +69,7 @@ const rawQuestions = [
             { text: "好的收到哈哈哈", level: 1 },
             { text: "在干嘛吃了吗早点睡", level: 2 },
             { text: "宝想你亲亲（不同的人）", level: 3 },
-            { text: "别告诉你对象我们这样不好吧刺激", level: 4 }
+            { text: "别告诉Ta对象我们这样不好吧刺激", level: 4 }
         ]
     },
     {
@@ -84,16 +84,16 @@ const rawQuestions = [
     {
         text: "你的晚安都发给谁？",
         options: [
-            { text: "只发给对象，发完就睡", level: 1 },
-            { text: "对象加好朋友，群发", level: 2 },
+            { text: "只发给那个人，发完就睡", level: 1 },
+            { text: "那个人加好朋友，群发", level: 2 },
             { text: "不同人不同晚安，有的还带爱心", level: 3 },
             { text: "发什么晚安，发睡了吗，谁回聊谁", level: 4 }
         ]
     },
     {
-        text: "你有多少个只是朋友的异性？",
+        text: "你有多少个只是好朋友的异性？",
         options: [
-            { text: "没几个，都认识我对象", level: 1 },
+            { text: "没几个，都认识那个人", level: 1 },
             { text: "有几个，但正常交往", level: 2 },
             { text: "挺多，都只是朋友，但都单独约", level: 3 },
             { text: "朋友？那是储备粮，懂？", level: 4 }
@@ -118,7 +118,7 @@ const rawQuestions = [
         ]
     },
     {
-        text: "如果对象和异性聊天，你：",
+        text: "如果那个人和别人聊天，你：",
         options: [
             { text: "信任，不会乱吃醋", level: 1 },
             { text: "不舒服，但会沟通", level: 2 },
@@ -334,7 +334,7 @@ function showResult() {
     
     if (totalScore >= 15 && totalScore <= 26) {
         type = '纯爱战神（恋爱脑晚期）';
-        description = "绝了！你简直是当代稀有物种！专一得像条狗（褒义），恋爱脑晚期没救了。对象说东你绝不往西，对象说星星你绝不摘月亮。建议：保护好自己，别被渣了，你这纯度太高了！";
+        description = "绝了！你简直是当代稀有物种！专一得像条狗（褒义），恋爱脑晚期没救了。Ta说东你绝不往西，Ta说星星你绝不摘月亮。建议：保护好自己，别被渣了，你这纯度太高了！";
     } else if (totalScore >= 27 && totalScore <= 38) {
         type = '正常人（有点小渣但不多）';
         description = "恭喜你，你是个正常人！会有小心思，但底线还在。偶尔想养鱼但鱼塘没水，想当海王但晕船。属于那种想渣但渣不起来。继续加油，别学坏！";

@@ -46,15 +46,6 @@ const rawQuestions = [
         ]
     },
     {
-        text: "对象说想看你手机，你：",
-        options: [
-            { text: "给啊随便看，反正没啥", level: 1 },
-            { text: "给，但先上个厕所删东西", level: 2 },
-            { text: "这是不信任！然后大吵一架", level: 3 },
-            { text: "手机坏了没电了忘带了，反正不给", level: 4 }
-        ]
-    },
-    {
         text: "你的异性闺蜜约你单独吃饭，你：",
         options: [
             { text: "拒绝，或者带上对象一起", level: 1 },
@@ -82,30 +73,12 @@ const rawQuestions = [
         ]
     },
     {
-        text: "情人节你收到几份礼物？",
-        options: [
-            { text: "一份，来自对象", level: 1 },
-            { text: "一份，但偷偷羡慕别人的", level: 2 },
-            { text: "两三份，不同人送的都收", level: 3 },
-            { text: "数不清，礼物袋比垃圾桶大", level: 4 }
-        ]
-    },
-    {
         text: "你的恋爱观是：",
         options: [
             { text: "一生一世一双人，认准就一辈子", level: 1 },
             { text: "不合适就分，但每段都认真", level: 2 },
             { text: "多谈几个才知道谁最适合", level: 3 },
             { text: "谈什么恋爱，养鱼它不香吗", level: 4 }
-        ]
-    },
-    {
-        text: "对象问你爱我吗，你：",
-        options: [
-            { text: "认真看着眼睛说爱", level: 1 },
-            { text: "当然爱啊，亲一口糊弄过去", level: 2 },
-            { text: "你怎么突然问这个，转移话题", level: 3 },
-            { text: "爱啊——同时给5个人发在想你", level: 4 }
         ]
     },
     {
@@ -151,24 +124,6 @@ const rawQuestions = [
             { text: "不舒服，但会沟通", level: 2 },
             { text: "你可以我也可以，找人报复性聊天", level: 3 },
             { text: "双标——我可以，你不行", level: 4 }
-        ]
-    },
-    {
-        text: "你的微信步数暴露了什么？",
-        options: [
-            { text: "宅家0步或正常上下班", level: 1 },
-            { text: "偶尔异常，但能解释", level: 2 },
-            { text: "经常半夜还有步数，夜跑去了", level: 3 },
-            { text: "关了什么步数，或者开小号刷", level: 4 }
-        ]
-    },
-    {
-        text: "你对海王这个词的态度：",
-        options: [
-            { text: "鄙视，不可能成为这种人", level: 1 },
-            { text: "不理解，觉得累", level: 2 },
-            { text: "羡慕，但觉得自己做不到", level: 3 },
-            { text: "别骂了别骂了.jpg", level: 4 }
         ]
     },
     {
@@ -377,16 +332,16 @@ function showResult() {
     let type = '';
     let description = '';
     
-    if (totalScore >= 20 && totalScore <= 35) {
+    if (totalScore >= 15 && totalScore <= 26) {
         type = '纯爱战神（恋爱脑晚期）';
         description = "绝了！你简直是当代稀有物种！专一得像条狗（褒义），恋爱脑晚期没救了。对象说东你绝不往西，对象说星星你绝不摘月亮。建议：保护好自己，别被渣了，你这纯度太高了！";
-    } else if (totalScore >= 36 && totalScore <= 50) {
+    } else if (totalScore >= 27 && totalScore <= 38) {
         type = '正常人（有点小渣但不多）';
         description = "恭喜你，你是个正常人！会有小心思，但底线还在。偶尔想养鱼但鱼塘没水，想当海王但晕船。属于那种想渣但渣不起来。继续加油，别学坏！";
-    } else if (totalScore >= 51 && totalScore <= 65) {
+    } else if (totalScore >= 39 && totalScore <= 50) {
         type = '海王/海后（鱼塘塘主）';
         description = "好家伙，鱼塘挺大啊！同时聊好几个是常态，宝字随口就来，爱心表情群发。你是那种不主动不拒绝不负责的资深玩家。建议：收收心，别最后翻车了！";
-    } else if (totalScore >= 66 && totalScore <= 80) {
+    } else if (totalScore >= 51 && totalScore <= 60) {
         type = '顶级渣男/渣女（祖师爷级别）';
         description = "卧槽，祖师爷来了！你把感情玩得明明白白，时间管理大师，多线操作666。手机里三个微信，备忘录记着小号密码，开会是你的口头禅。建议：做个人吧，天道好轮回！";
     }

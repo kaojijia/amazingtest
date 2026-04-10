@@ -567,6 +567,12 @@ document.addEventListener('DOMContentLoaded', function() {
     optionsContainer.addEventListener('click', function(e) {
         if (e.target.closest('.option')) {
             const optionElement = e.target.closest('.option');
+            
+            // 如果选项已经被选中，不做任何操作
+            if (optionElement.classList.contains('selected')) {
+                return;
+            }
+            
             const score = parseInt(optionElement.dataset.score);
             
             // 保存分数
